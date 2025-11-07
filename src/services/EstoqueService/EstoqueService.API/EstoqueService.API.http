@@ -1,0 +1,6 @@
+@EstoqueService.API_HostAddress = http://localhost:5216
+
+GET {{EstoqueService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
