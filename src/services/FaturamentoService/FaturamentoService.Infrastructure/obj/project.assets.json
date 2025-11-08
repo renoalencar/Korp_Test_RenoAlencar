@@ -1112,6 +1112,16 @@
         "runtime": {
           "bin/placeholder/FaturamentoService.Domain.dll": {}
         }
+      },
+      "Shared.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Shared.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.Common.dll": {}
+        }
       }
     }
   },
@@ -3239,6 +3249,11 @@
       "type": "project",
       "path": "../FaturamentoService.Domain/FaturamentoService.Domain.csproj",
       "msbuildProject": "../FaturamentoService.Domain/FaturamentoService.Domain.csproj"
+    },
+    "Shared.Common/1.0.0": {
+      "type": "project",
+      "path": "../../../shared/Shared.Common/Shared.Common.csproj",
+      "msbuildProject": "../../../shared/Shared.Common/Shared.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3248,7 +3263,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.10",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4",
       "Polly >= 8.6.4",
-      "Polly.Extensions.Http >= 3.0.0"
+      "Polly.Extensions.Http >= 3.0.0",
+      "Shared.Common >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3281,6 +3297,9 @@
             },
             "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\FaturamentoService\\FaturamentoService.Domain\\FaturamentoService.Domain.csproj": {
               "projectPath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\FaturamentoService\\FaturamentoService.Domain\\FaturamentoService.Domain.csproj"
+            },
+            "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\shared\\Shared.Common\\Shared.Common.csproj": {
+              "projectPath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\shared\\Shared.Common\\Shared.Common.csproj"
             }
           }
         }
