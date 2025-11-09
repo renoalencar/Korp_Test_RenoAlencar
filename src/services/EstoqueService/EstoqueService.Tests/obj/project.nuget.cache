@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kGAF9ay0FHA=",
+  "dgSpecHash": "ixuGfRPbkec=",
   "success": true,
   "projectFilePath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\EstoqueService\\EstoqueService.Tests\\EstoqueService.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\renoa\\.nuget\\packages\\automapper\\15.1.0\\automapper.15.1.0.nupkg.sha512",
-    "C:\\Users\\renoa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\fluentvalidation\\12.1.0\\fluentvalidation.12.1.0.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.0\\fluentvalidation.dependencyinjectionextensions.12.1.0.nupkg.sha512",
@@ -72,18 +71,5 @@
     "C:\\Users\\renoa\\.nuget\\packages\\xunit.extensibility.execution\\2.9.2\\xunit.extensibility.execution.2.9.2.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\xunit.runner.visualstudio\\2.8.2\\xunit.runner.visualstudio.2.8.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Versão detectada do pacote fora da restrição de dependência: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requer AutoMapper (= 12.0.1), mas a versão AutoMapper 15.1.0 foi resolvida.",
-      "projectPath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\EstoqueService\\EstoqueService.Tests\\EstoqueService.Tests.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\EstoqueService\\EstoqueService.Tests\\EstoqueService.Tests.csproj",
-      "libraryId": "AutoMapper",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -8,7 +8,7 @@ public class ProdutoProfile : Profile
 {
     public ProdutoProfile()
     {
-        CreateMap<CriarProdutoDTO, Produto>()
+        CreateMap<AdicionarProdutoDTO, Produto>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.DataCriacao, opt => opt.Ignore())
             .ForMember(dest => dest.DataAtualizacao, opt => opt.Ignore())

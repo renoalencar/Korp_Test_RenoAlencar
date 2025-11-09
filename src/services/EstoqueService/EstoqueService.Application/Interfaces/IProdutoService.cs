@@ -4,7 +4,7 @@ namespace EstoqueService.Application.Interfaces;
 
 public interface IProdutoService
 {
-    Task<ProdutoResponseDTO> CriarAsync(CriarProdutoDTO dto);
+    Task<ProdutoResponseDTO> AdicionarAsync(AdicionarProdutoDTO dto);
 
     Task<ProdutoResponseDTO> AtualizarAsync(int id, AtualizarProdutoDTO dto);
 

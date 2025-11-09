@@ -19,6 +19,8 @@ public class ProdutoRepository : IProdutoRepository
         _logger = logger;
     }
 
+    // --- MÉTODOS DE LEITURA (PERMANECEM IGUAIS) ---
+
     public async Task<Produto?> ObterPorIdAsync(int id)
     {
         _logger.LogDebug("Repository: Buscando produto por ID {Id}", id);
@@ -75,54 +77,6 @@ public class ProdutoRepository : IProdutoRepository
         return (items, total);
     }
 
-    public async Task<Produto> CriarAsync(Produto produto)
-    {
-        _logger.LogDebug("Repository: Criando produto {Codigo}", produto.Codigo);
-
-        _context.Produtos.Add(produto);
-
-        await _context.SaveChangesAsync();
-
-        _logger.LogInformation("Repository: Produto {Id} criado", produto.Id);
-
-        return produto;
-    }
-
-    public async Task<Produto> AtualizarAsync(Produto produto)
-    {
-        _logger.LogDebug("Repository: Atualizando produto {Id}", produto.Id);
-
-        _context.Produtos.Update(produto);
-
-        await _context.SaveChangesAsync();
-
-        _logger.LogInformation("Repository: Produto {Id} atualizado", produto.Id);
-
-        return produto;
-    }
-
-    public async Task<bool> DeletarAsync(int id)
-    {
-        _logger.LogDebug("Repository: Deletando produto {Id} (soft delete)", id);
-
-        var produto = await ObterPorIdAsync(id);
-        
-        if (produto == null)
-        {
-            _logger.LogWarning("Repository: Produto {Id} não encontrado para deleção", id);
-            return false;
-        }
-
-        produto.Deletado = true;
-        produto.DataDelecao = DateTime.UtcNow;
-
-        await _context.SaveChangesAsync();
-
-        _logger.LogInformation("Repository: Produto {Id} deletado (soft delete)", id);
-
-        return true;
-    }
-
     public async Task<bool> ExisteCodigoAsync(string codigo, int? excludeId = null)
     {
         _logger.LogDebug("Repository: Verificando existência do código {Codigo}", codigo);
@@ -144,7 +98,7 @@ public class ProdutoRepository : IProdutoRepository
     public async Task<bool> ProdutoTemNotasFiscaisAsync(int id)
     {
         _logger.LogDebug("Repository: Verificando se produto {Id} tem notas fiscais", id);
-
+        
         // TODO: Implementar comunicação HTTP com FaturamentoService
         // Ou consultar banco compartilhado se houver
 
@@ -152,11 +106,40 @@ public class ProdutoRepository : IProdutoRepository
         // Em produção, fazer chamada HTTP:
         // var response = await _httpClient.GetAsync($"api/notasfiscais/produto/{id}/tem-notas");
         // return response.StatusCode == HttpStatusCode.OK;
-
         await Task.CompletedTask;
-
+        
         _logger.LogDebug("Repository: Verificação de notas fiscais não implementada (retornando false)");
-
         return false;
+    }
+
+
+    public async Task AdicionarAsync(Produto produto)
+    {
+        _logger.LogDebug("Repository: Adicionando produto {Codigo} ao contexto", produto.Codigo);
+        
+        await _context.Produtos.AddAsync(produto);
+
+        // REMOVIDO: await _context.SaveChangesAsync();
+    }
+
+    public void Atualizar(Produto produto)
+    {
+        _logger.LogDebug("Repository: Marcando produto {Id} como modificado", produto.Id);
+
+        _context.Produtos.Update(produto);
+    }
+
+    public void Deletar(Produto produto)
+    {
+        _logger.LogDebug("Repository: Marcando produto {Id} como deletado (soft delete)", produto.Id);
+
+        // O produto já foi buscado pelo Service,
+        // apenas aplicamos a lógica de soft delete.
+        produto.Deletado = true;
+        produto.DataDelecao = DateTime.UtcNow;
+
+        _context.Produtos.Update(produto);
+
+        // REMOVIDO: await _context.SaveChangesAsync();
     }
 }

@@ -11,14 +11,14 @@ namespace EstoqueService.API.Controllers;
 public class ProdutosController : ControllerBase
 {
     private readonly IProdutoService _service;
-    private readonly IValidator<CriarProdutoDTO> _criarValidator;
+    private readonly IValidator<AdicionarProdutoDTO> _criarValidator;
     private readonly IValidator<AtualizarProdutoDTO> _atualizarValidator;
     private readonly IValidator<BaixaEstoqueDTO> _baixaValidator;
     private readonly ILogger<ProdutosController> _logger;
 
     public ProdutosController(
         IProdutoService service,
-        IValidator<CriarProdutoDTO> criarValidator,
+        IValidator<AdicionarProdutoDTO> criarValidator,
         IValidator<AtualizarProdutoDTO> atualizarValidator,
         IValidator<BaixaEstoqueDTO> baixaValidator,
         ILogger<ProdutosController> logger)
@@ -97,7 +97,7 @@ public class ProdutosController : ControllerBase
     [ProducesResponseType(typeof(ProdutoResponseDTO), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<ProdutoResponseDTO>> Criar([FromBody] CriarProdutoDTO dto)
+    public async Task<ActionResult<ProdutoResponseDTO>> Adicionar([FromBody] AdicionarProdutoDTO dto)
     {
         try
         {
@@ -111,7 +111,7 @@ public class ProdutosController : ControllerBase
                 return BadRequest(new { mensagem = "Dados inválidos", erros });
             }
 
-            var produto = await _service.CriarAsync(dto);
+            var produto = await _service.AdicionarAsync(dto);
 
             _logger.LogInformation("Produto {Id} criado com sucesso", produto.Id);
 
@@ -228,6 +228,15 @@ public class ProdutosController : ControllerBase
             }
 
             var resultado = await _service.BaixarEstoqueAsync(dto);
+
+            if (!resultado.Sucesso)
+            {
+                _logger.LogWarning(
+                    "Falha ao baixar estoque: {Mensagem} (Produto: {Codigo})",
+                    resultado.Mensagem, dto.CodigoProduto);
+                
+                return BadRequest(resultado);
+            }
 
             return Ok(resultado);
         }

@@ -3,7 +3,7 @@ using EstoqueService.Application.DTOs;
 
 namespace EstoqueService.Application.Validators;
 
-public class CriarProdutoValidator : AbstractValidator<CriarProdutoDTO>
+public class CriarProdutoValidator : AbstractValidator<AdicionarProdutoDTO>
 {
     public CriarProdutoValidator()
     {

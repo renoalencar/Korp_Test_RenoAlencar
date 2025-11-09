@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using FluentValidation;
 using Serilog;
 using EstoqueService.Infrastructure.Data;
@@ -46,11 +47,17 @@ try
         }
     });
 
-    builder.Services.AddAutoMapper(typeof(ProdutoProfile));
+    builder.Services.AddAutoMapper(cfg =>
+    {
+        cfg.AddMaps(typeof(ProdutoProfile).Assembly);
+    });
 
-    builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+    builder.Services.AddValidatorsFromAssemblyContaining<ProdutoProfile>();
 
     builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+    builder.Services.AddScoped<IOperacaoRepository, OperacaoRepository>();
+
+    builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
     builder.Services.AddScoped<IProdutoService, ProdutoService>();
 

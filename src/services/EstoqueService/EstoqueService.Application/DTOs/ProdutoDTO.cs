@@ -1,6 +1,6 @@
 namespace EstoqueService.Application.DTOs;
 
-public record CriarProdutoDTO(
+public record AdicionarProdutoDTO(
     string Codigo,
     string Descricao,
     long Saldo

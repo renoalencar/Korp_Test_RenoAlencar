@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0jhTjBtwX3g=",
+  "dgSpecHash": "Efel8LgRQDM=",
   "success": true,
   "projectFilePath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\FaturamentoService\\FaturamentoService.API\\FaturamentoService.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\renoa\\.nuget\\packages\\automapper\\15.1.0\\automapper.15.1.0.nupkg.sha512",
-    "C:\\Users\\renoa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\fluentvalidation\\12.1.0\\fluentvalidation.12.1.0.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.0\\fluentvalidation.dependencyinjectionextensions.12.1.0.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -77,18 +76,5 @@
     "C:\\Users\\renoa\\.nuget\\packages\\system.text.json\\9.0.10\\system.text.json.9.0.10.nupkg.sha512",
     "C:\\Users\\renoa\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "message": "Versão detectada do pacote fora da restrição de dependência: AutoMapper.Extensions.Microsoft.DependencyInjection 12.0.1 requer AutoMapper (= 12.0.1), mas a versão AutoMapper 15.1.0 foi resolvida.",
-      "projectPath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\FaturamentoService\\FaturamentoService.API\\FaturamentoService.API.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\renoa\\git\\ws-dotnet\\devnest\\Korp_Test_RenoAlencar\\src\\services\\FaturamentoService\\FaturamentoService.API\\FaturamentoService.API.csproj",
-      "libraryId": "AutoMapper",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "logs": []
 }
