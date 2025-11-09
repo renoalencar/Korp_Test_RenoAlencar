@@ -1,5 +1,4 @@
 using EstoqueService.Domain.Interfaces;
-// using EstoqueService.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
 
